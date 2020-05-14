@@ -1,8 +1,14 @@
 #! /bin/bash
+echo "What is the domain name?"
+read DOMAINNAME
+
+echo "Enter path for Docker data.  ie. /mnt/docker"
+read DOCKERPATH
+
 docker run -d \
 --name=unifi \
 --restart=always \
--v /mnt/docker/UniFi:/config \
+-v $DOCKERPATH/UniFi:/config \
 -e PGID=1000 \
 -e PGID=1000 \
 -p 8080:8080 \
@@ -23,5 +29,5 @@ docker run -d \
 -l "traefik.frontend.headers.customResponseHeaders"="X-Robots-Tag:noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex" \
 -l "traefik.frontend.headers.forceSTSHeader"="true" \
 -l "traefik.frontend.rule"="Host:unifi.$DOMAINNAME" \
--l "traefik.port"="8080" \
+-l "traefik.port"="8443" \
 linuxserver/unifi
