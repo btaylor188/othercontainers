@@ -6,9 +6,9 @@ docker run \
   -p 26900:26900/udp \
   -p 26901:26901/udp \
   -p 26902:26902/udp \
-  -p 8080:8080/udp \
-  -p 8081:8081/tcp \
-  -p 8082:8082/tcp \
+  -p 9080:8080/udp \
+  -p 9081:8081/tcp \
+  -p 9082:8082/tcp \
   -e START_MODE=1 \
   -e VERSION=stable \
   -e TEST_ALERT=YES \
