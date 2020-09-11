@@ -1,11 +1,7 @@
 docker run \
   --name 7dtdserver \
   --restart unless-stopped \
-  -v "./7DaysToDie:/home/sdtdserver/.local/share/7DaysToDie/" \
-  -v "./ServerFiles:/home/sdtdserver/serverfiles/" \
-  -v "./LogFolder:/home/sdtdserver/log/" \
-  -v "./BackupFolder:/home/sdtdserver/lgsm/backup/" \
-  -v "./LGSM-Config:/home/sdtdserver/lgsm/config-lgsm/sdtdserver/" \
+  -v "/mnt/nvme/docker/7dtd:/home/sdtdserver/"\
   -p 26900:26900/tcp \
   -p 26900:26900/udp \
   -p 26901:26901/udp \
@@ -18,5 +14,5 @@ docker run \
   -e TEST_ALERT=YES \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TimeZone=Europe/Madrid \
+  -e TimeZone=America/Denver \
   vinanrra/7dtd-server
