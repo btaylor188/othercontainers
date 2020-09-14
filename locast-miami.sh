@@ -1,7 +1,7 @@
 #! /bin/bash
-echo "Username?"
+echo "PIA Username?"
 read USERNAME
-echo "Password?"
+echo "PIA Password?"
 read PASSWORD
 
 
