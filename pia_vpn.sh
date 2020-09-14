@@ -11,7 +11,7 @@ docker network create pia_network
 docker run -d \
   --cap-add=NET_ADMIN \
   --name=pia \
-  --network=pia_network
+  --network=pia_network \
   --restart=always \
   --dns 209.222.18.222 --dns 209.222.18.218 \
   -e 'REGION=$REGION' \
