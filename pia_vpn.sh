@@ -6,6 +6,8 @@ read PASSWORD
 echo "PIA Region?"
 read REGION
 
+docker network create pia_network
+
 docker run -d \
   --cap-add=NET_ADMIN \
   --name=pia \
