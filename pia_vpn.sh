@@ -6,7 +6,9 @@ read PASSWORD
 echo "PIA Region?"
 read REGION
 
-docker run --cap-add=NET_ADMIN --name=pia -d \
+docker run -d \
+  --cap-add=NET_ADMIN \
+  --name=pia \
   --restart=always \
   --dns 209.222.18.222 --dns 209.222.18.218 \
   -e 'REGION=$REGION' \
