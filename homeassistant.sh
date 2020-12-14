@@ -10,7 +10,6 @@ docker run -d \
 --restart=always \
 --net=host \
 -v /$DOCKERPATH/homeassistant:/config \
--v /etc/localtime:/etc/localtime:ro \
 -l "traefik.enable"="true" \
 -l "traefik.frontend.auth.forward.address"="http://oauth:4181" \
 -l "traefik.frontend.headers.SSLHost"="$DOMAINNAME" \
