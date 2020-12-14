@@ -13,7 +13,7 @@ docker run -d \
   --restart=always \
   --dns 209.222.18.222 --dns 209.222.18.218 \
   -p 6078:6077 \
-  -e REGION="US Florida" \
+  -e REGION="US New York City" \
   -e USERNAME=$USERNAME \
   -e PASSWORD=$PASSWORD \
   itsdaspecialk/pia-openvpn
