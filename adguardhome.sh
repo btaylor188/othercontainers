@@ -1,24 +1,11 @@
-docker run -d --name adguardhome\
---restart unless-stopped\
--v /mnt/nvme/docker/adguardhome/work:/opt/adguardhome/work\
--v /mnt/nvme/docker/adguardhome/conf:/opt/adguardhome/conf\
--p 53:53/tcp -p 53:53/udp\
--p 67:67/udp -p 68:68/udp\
--p 9080:80/tcp -p 9443:443/tcp -p 9443:443/udp -p 3000:3000/tcp\
--p 853:853/tcp\
--p 784:784/udp -p 853:853/udp -p 8853:8853/udp\
--p 5443:5443/tcp -p 5443:5443/udp\
--l "traefik.enable"="true" \
--l "traefik.frontend.auth.forward.address"="http://oauth:4181" \
--l "traefik.frontend.headers.SSLHost"="$DOMAINNAME" \
--l "traefik.frontend.headers.SSLRedirect"="true" \
--l "traefik.frontend.headers.STSIncludeSubdomains"="true" \
--l "traefik.frontend.headers.STSPreload"="true" \
--l "traefik.frontend.headers.STSSeconds"="315360000" \
--l "traefik.frontend.headers.browserXSSFilter"="true" \
--l "traefik.frontend.headers.contentTypeNosniff"="true" \
--l "traefik.frontend.headers.customResponseHeaders"="X-Robots-Tag:noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex" \
--l "traefik.frontend.headers.forceSTSHeader"="true" \
--l "traefik.frontend.rule"="Host:adguardghome.$DOMAINNAME" \
--l "traefik.port"="9443" \
+docker run -d --name adguardhome \
+--restart=always \
+-v /mnt/nvme/docker/adguardhome/work:/opt/adguardhome/work \
+-v /mnt/nvme/docker/adguardhome/conf:/opt/adguardhome/conf \
+-p 53:53/tcp -p 53:53/udp \
+-p 67:67/udp -p 68:68/udp \
+-p 9080:80/tcp -p 9443:443/tcp -p 9443:443/udp -p 3000:3000/tcp \
+-p 853:853/tcp \
+-p 784:784/udp -p 853:853/udp -p 8853:8853/udp \
+-p 5443:5443/tcp -p 5443:5443/udp \
 adguard/adguardhome
