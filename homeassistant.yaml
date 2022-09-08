@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    restart: always
+    volumes:
+      - $DOCKERPATH/homeassistant:/config
+    networks:
+      lan:
+        ipv4_address: $IP
+    image: homeassistant/home-assistant:stable
+networks:
+  lan:
+    external: true
