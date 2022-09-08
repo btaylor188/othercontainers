@@ -11,7 +11,7 @@ services:
     networks:
       lan:
         ipv4_address: $IP
-    image: linuxserver/unifi
+    image: linuxserver/unifi-controller:latest
 networks:
   lan:
     external: true
