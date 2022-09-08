@@ -10,14 +10,7 @@ services:
       - PGID=1000
     networks:
       lan:
-        ipv4_address: 10.100.100.9
-    ports:
-      - '8080:8080'
-      - '8081:8081'
-      - '8443:8443'
-      - '8843:8843'
-      - '8880:8880'
-      - '3478:3478/udp'
+        ipv4_address: $IP
     image: linuxserver/unifi
 networks:
   lan:
