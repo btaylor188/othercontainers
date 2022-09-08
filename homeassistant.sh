@@ -6,7 +6,7 @@ echo "What is the domain name?"
 read DOMAINNAME
 
 echo "Assign Unused Network IP"
-read $IP
+read IP
 
 cat > ./.env << EOF1
 DOMAINNAME=$DOMAINNAME
