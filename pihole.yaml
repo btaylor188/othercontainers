@@ -1,0 +1,22 @@
+version: "3"
+
+# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    network:
+      lan:
+        ipv4_address: $IP
+    environment:
+      TZ: 'America/Denver'
+      WEBPASSWORD: 3141596
+    # Volumes store your data between container upgrades
+    volumes:
+      - '$DOCKERPATH/pihole/etc-pihole:/etc/pihole'
+      - '$DOCKERPATH/pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
+    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    restart: unless-stopped
+networks:
+  lan:
+    external: true
