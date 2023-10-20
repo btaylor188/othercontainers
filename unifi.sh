@@ -10,5 +10,5 @@ DOCKERPATH=$DOCKERPATH
 IP=$IP
 EOF1
 
-sudo docker-compose -f unifi.yaml -p unifi up -d
+sudo docker compose -f unifi.yaml -p unifi up -d
 rm ./.env
